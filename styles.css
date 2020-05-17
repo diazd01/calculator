@@ -1,0 +1,74 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    height: 15vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 4rem;
+}
+
+.calculator-section {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.calculator {}
+
+.entry-wrap {
+    height: 6vh;
+    width: 300px;
+    margin-bottom: 1em;
+    border: 1px solid
+}
+
+.entry {
+    text-align: right;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    padding: 0em 0.5em 0em 0em;
+}
+
+.entry::placeholder {
+    color: #2b2b2b;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 300px;
+    grid-gap: 0.4em;
+    height: 250px;
+}
+
+.equals {
+    grid-column: 6/4;
+}
+
+
+button {
+    font-size: 1.5rem;
+}
