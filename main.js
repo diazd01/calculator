@@ -102,6 +102,7 @@ operators.forEach((op) => {
 
 /* EQUALS SIGN EVENT */
 equals.addEventListener('click', (e) => {
+    console.log('ye'); 
     if (firstNum === undefined) {
         firstNum = createdNum;
         createdNum = undefined;
