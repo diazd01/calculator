@@ -13,8 +13,8 @@ let createdNum;
 let operator;
 let answer;
 
-let currentOperator = {
-    op: '', 
+const currentOperator = {
+    op: '',
     active: false
 };
 
@@ -39,6 +39,10 @@ const createNumber = function (num) {
 
     if (arr.length < 9) {
         arr.push(num);
+        if(arr[0] === '0') {
+            arr.splice(0, 1);
+            return;
+        }
     }
     num = arr.join('');
     entry.innerText = num;
@@ -57,7 +61,7 @@ operators.forEach((op) => {
     op.addEventListener('click', (e) => {
 
         arr = [];
-        // console.log(e);
+        currentOperator.active = true;
         switch (e.target.innerText) {
 
             case '÷':
@@ -79,7 +83,6 @@ operators.forEach((op) => {
         if (firstNum === undefined) {
             firstNum = createdNum;
             createdNum = undefined;
-            currentOperator.op = operator;  
         } else if (secondNum === undefined) {
             secondNum = createdNum;
             createdNum = undefined;
@@ -89,10 +92,9 @@ operators.forEach((op) => {
             operate(firstNum, secondNum);
             secondNum = undefined;
             firstNum = answer;
-            currentOperator.op = operator; 
             console.log(answer);
         }
-
+        currentOperator.op = operator;
         console.log(`${firstNum} ${secondNum}`);
     });
 
@@ -106,12 +108,13 @@ equals.addEventListener('click', (e) => {
     } else if (secondNum === undefined) {
         secondNum = createdNum;
         createdNum = undefined;
-    } else {
-        firstNum = answer;
     }
 
     if (firstNum !== undefined && secondNum !== undefined) {
         operate(firstNum, secondNum);
+        firstNum = answer;
         console.log(answer);
+    } else if (firstNum !== undefined && secondNum === undefined && currentOperator.active) {
+        secondNum = firstNum;
     }
 });
