@@ -39,7 +39,7 @@ const createNumber = function (num) {
 
     if (arr.length < 9) {
         arr.push(num);
-        if(arr[0] === '0') {
+        if (arr[0] === '0') {
             arr.splice(0, 1);
             return;
         }
@@ -114,7 +114,9 @@ equals.addEventListener('click', (e) => {
         operate(firstNum, secondNum);
         firstNum = answer;
         console.log(answer);
-    } else if (firstNum !== undefined && secondNum === undefined && currentOperator.active) {
+    }
+    if (firstNum !== undefined && secondNum === undefined && currentOperator.active) {
         secondNum = firstNum;
+        operate(firstNum, secondNum);
     }
 });
