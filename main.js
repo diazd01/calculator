@@ -5,6 +5,7 @@ const numbers = document.querySelectorAll('.numbers');
 const equals = document.querySelector('.equals');
 const buttons = document.querySelectorAll('.btn');
 const clearButton = document.querySelector('.clear');
+const decimal = document.querySelector('.decimal');
 //Variables:
 entry.innerText = 0;
 let decimalCount = 0;
@@ -23,7 +24,7 @@ const currentOperator = {
 
 //Functions:
 const operate = function (a, b) {
-
+    
     if (currentOperator.op === 'divide') {
         answer = a / b;
     } else if (currentOperator.op === 'multiply') {
@@ -64,7 +65,7 @@ const defineNumbers = function () {
     } else if (secondNum === undefined) {
         secondNum = createdNum;
         createdNum = undefined;
-    }
+    } 
 }
 
 const clearCalculator = function () {
@@ -85,6 +86,10 @@ const clearCalculator = function () {
 numbers.forEach((number) => {
     number.addEventListener('click', (e) => {
         createdNum = createNumber(e.target.innerText);
+        if(firstNum !== undefined && secondNum !== undefined) {
+            firstNum = createdNum;
+            createdNum = undefined;
+        }
     });
 });
 
@@ -94,7 +99,6 @@ operators.forEach((op) => {
         arr = [];
         decimalCount = 0;
         currentOperator.active = true;
-
         switch (e.target.innerText) {
 
             case '÷':
@@ -115,7 +119,7 @@ operators.forEach((op) => {
         if (equalsClicked) {
             secondNum = undefined;
         }
-
+        
         defineNumbers();
 
         if (firstNum !== undefined && secondNum !== undefined) {
@@ -123,6 +127,7 @@ operators.forEach((op) => {
             secondNum = undefined;
             firstNum = answer;
         }
+    
         currentOperator.op = operator;
         console.log(`${firstNum} ${secondNum}`);
     });
@@ -131,6 +136,7 @@ operators.forEach((op) => {
 
 /* EQUALS SIGN EVENT */
 equals.addEventListener('click', (e) => {
+    arr = [];
     equalsClicked = true;
     defineNumbers();
 
@@ -151,6 +157,7 @@ equals.addEventListener('click', (e) => {
 clearButton.addEventListener('click', (e) => {
     clearCalculator();
 });
+
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
