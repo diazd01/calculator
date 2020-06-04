@@ -34,7 +34,9 @@ const operate = function (a, b) {
     } else if (currentOperator.op === 'add') {
         answer = parseFloat(a) + parseFloat(b);
     }
-
+    if (answer === Infinity) {
+        return entry.innerText = 'ERROR';
+    }
     return entry.innerText = Math.round(answer * 100000000) / 100000000;
 }
 
@@ -138,15 +140,17 @@ equals.addEventListener('click', (e) => {
     arr = [];
     equalsClicked = true;
     defineNumbers();
-
+    if (!currentOperator.active) {
+        return;
+    }
     if (firstNum !== undefined && secondNum !== undefined) {
         operate(firstNum, secondNum);
         firstNum = answer;
-    } else if (firstNum !== undefined && secondNum === undefined && currentOperator.active) {
+    } else if (firstNum !== undefined && secondNum === undefined) {
         secondNum = firstNum;
         operate(firstNum, secondNum);
         firstNum = answer;
-    }
+    } 
     console.log(`${firstNum} ${secondNum}`);
     console.log(answer);
 });
