@@ -87,8 +87,7 @@ numbers.forEach((number) => {
     number.addEventListener('click', (e) => {
         createdNum = createNumber(e.target.innerText);
         if(firstNum !== undefined && secondNum !== undefined) {
-            firstNum = createdNum;
-            createdNum = undefined;
+            firstNum = undefined;
         }
     });
 });
