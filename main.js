@@ -37,7 +37,7 @@ const operate = function (a, b) {
         return entry.innerText = 'ERROR';
     }
     if (answer.toString().length >= 10) {
-        answer = answer.toPrecision(1);
+        answer = answer.toPrecision(7);
     }
     return entry.innerText = answer;
 
@@ -169,3 +169,4 @@ buttons.forEach((button) => {
         document.body.style.backgroundColor = '#90EE90';
     });
 });
+ 
