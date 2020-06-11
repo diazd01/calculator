@@ -52,6 +52,9 @@ const createNumber = function (num) {
     if (arr[0] === '0' && arr[1] === '0') {
        arr.pop();
     }
+    if(arr[0] === '0' && arr.length > 1) {
+        arr.shift();
+    }
     if (num === '.') {
         ++decimalCount;
     }
