@@ -1,11 +1,10 @@
-//INPUT: 
+//DOMS: 
 let entry = document.querySelector('.entry');
 let operators = document.querySelectorAll('.operators');
 const numbers = document.querySelectorAll('.numbers');
 const equals = document.querySelector('.equals');
 const buttons = document.querySelectorAll('.btn');
 const clearButton = document.querySelector('.clear');
-const decimal = document.querySelector('.decimal');
 //Variables:
 entry.innerText = 0;
 let decimalCount = 0;
@@ -37,7 +36,11 @@ const operate = function (a, b) {
     if (answer === Infinity) {
         return entry.innerText = 'ERROR';
     }
-    return entry.innerText = Math.round(answer * 100000000) / 100000000;
+    if (answer.toString().length >= 10) {
+        answer = answer.toPrecision(1);
+    }
+    return entry.innerText = answer;
+
 }
 
 
@@ -128,7 +131,6 @@ operators.forEach((op) => {
             secondNum = undefined;
             firstNum = answer;
         }
-    
         currentOperator.op = operator;
         console.log(`${firstNum} ${secondNum}`);
     });
