@@ -5,6 +5,7 @@ const numbers = document.querySelectorAll('.numbers');
 const equals = document.querySelector('.equals');
 const buttons = document.querySelectorAll('.btn');
 const clearButton = document.querySelector('.clear');
+const plus_minus = document.querySelector('.plus-minus');
 //Variables:
 entry.innerText = 0;
 let decimalCount = 0;
@@ -19,6 +20,7 @@ let equalsClicked = false;
 const currentOperator = {
     op: '',
     active: false,
+    plusMinus: false
 };
 
 //Functions:
@@ -64,6 +66,11 @@ const createNumber = function (num) {
     if (arr[0] === '.') {
         arr.unshift(0);
     }
+    /* HERE:
+     if(currentOperator.plusMinus) {
+        arr.unshift('-');
+        currentOperator.plusMinus = false;
+    } */
     
     num = arr.join('');
     entry.innerText = num;
@@ -91,7 +98,7 @@ const clearCalculator = function () {
     answer = undefined;
     equalsClicked = false;
     currentOperator.active = false;
-    document.body.style.backgroundColor = 'white';
+    document.body.style.background = 'white';
 }
 
 //Events:
@@ -106,7 +113,6 @@ numbers.forEach((number) => {
 
 operators.forEach((op) => {
     op.addEventListener('click', (e) => {
-
         arr = [];
         decimalCount = 0;
         currentOperator.active = true;
@@ -170,10 +176,14 @@ clearButton.addEventListener('click', (e) => {
     clearCalculator();
 });
 
-
+/* STYLE: */
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        document.body.style.backgroundColor = '#90EE90';
+        document.body.style.background = 'linear-gradient(to right, #2E8B57, #90EE90)';
     });
 });
- 
+
+/* PLUS-MINUS EVENT: ???*/
+// plus_minus.addEventListener('click', (e) => {
+//     currentOperator.plusMinus = true;
+// });
