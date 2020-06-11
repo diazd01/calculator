@@ -172,6 +172,6 @@ clearButton.addEventListener('click', (e) => {
 /* STYLE: */
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        document.body.style.background = 'linear-gradient(to right, #2E8B57, #90EE90)';
+        document.body.style.background = 'linear-gradient(to right, #3CB371, #90EE90)';
     });
 });
