@@ -19,8 +19,7 @@ let equalsClicked = false;
 
 const currentOperator = {
     op: '',
-    active: false,
-    plusMinus: false
+    active: false
 };
 
 //Functions:
@@ -65,13 +64,7 @@ const createNumber = function (num) {
     }
     if (arr[0] === '.') {
         arr.unshift(0);
-    }
-    /* HERE:
-     if(currentOperator.plusMinus) {
-        arr.unshift('-');
-        currentOperator.plusMinus = false;
-    } */
-    
+    }   
     num = arr.join('');
     entry.innerText = num;
     return num;
@@ -182,8 +175,3 @@ buttons.forEach((button) => {
         document.body.style.background = 'linear-gradient(to right, #2E8B57, #90EE90)';
     });
 });
-
-/* PLUS-MINUS EVENT: ???*/
-// plus_minus.addEventListener('click', (e) => {
-//     currentOperator.plusMinus = true;
-// });
