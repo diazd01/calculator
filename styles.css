@@ -45,7 +45,8 @@ body {
     height: 6vh;
     width: 300px;
     margin-bottom: 1em;
-    border: 1px solid
+    border: 2px solid; 
+    background-color: #F0FFF0;
 }
 
 .entry {
