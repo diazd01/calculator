@@ -33,7 +33,7 @@ const operate = function (a, b) {
     } else if (currentOperator.op === 'add') {
         answer = parseFloat(a) + parseFloat(b);
     }
-    if (answer === Infinity) {
+    if (answer === Infinity || answer === NaN) {
         return entry.innerText = 'ERROR';
     }
     if (answer.toString().length >= 10) {
@@ -49,6 +49,9 @@ const createNumber = function (num) {
     if (arr.length < 9) {
         arr.push(num);
     }
+    if (arr[0] === '0' && arr[1] === '0') {
+       arr.pop();
+    }
     if (num === '.') {
         ++decimalCount;
     }
@@ -58,6 +61,7 @@ const createNumber = function (num) {
     if (arr[0] === '.') {
         arr.unshift(0);
     }
+    
     num = arr.join('');
     entry.innerText = num;
     return num;
