@@ -65,13 +65,7 @@ const createNumber = function (num) {
     }
     if (arr[0] === '.') {
         arr.unshift(0);
-    }
-    /* HERE:
-     if(currentOperator.plusMinus) {
-        arr.unshift('-');
-        currentOperator.plusMinus = false;
-    } */
-    
+    }  
     num = arr.join('');
     entry.innerText = num;
     return num;
@@ -183,7 +177,3 @@ buttons.forEach((button) => {
     });
 });
 
-/* PLUS-MINUS EVENT: ???*/
-// plus_minus.addEventListener('click', (e) => {
-//     currentOperator.plusMinus = true;
-// });
