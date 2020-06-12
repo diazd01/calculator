@@ -59,7 +59,7 @@ const createNumber = function (num) {
     if (num === '.') {
         ++decimalCount;
     }
-    if (decimalCount > 1 && num === '.') {
+    if (decimalCount > 1 && num === '.' && arr.length < 9) {
         arr.pop();
     }
     if (arr[0] === '.') {
