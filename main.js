@@ -19,7 +19,8 @@ let equalsClicked = false;
 
 const currentOperator = {
     op: '',
-    active: false
+    active: false,
+    plusMinus: false
 };
 
 //Functions:
@@ -37,7 +38,7 @@ const operate = function (a, b) {
     if (answer === Infinity || answer === NaN) {
         return entry.innerText = 'ERROR';
     }
-    if (answer.toString().length >= 10) {
+    if (answer.toString().length > 10) {
         answer = answer.toPrecision(7);
     }
     return entry.innerText = answer;
@@ -47,7 +48,7 @@ const operate = function (a, b) {
 
 const createNumber = function (num) {
 
-    if (arr.length < 9) {
+    if (arr.length < 9 || arr.length < 10 && arr.includes('.')) {
         arr.push(num);
     }
     if (arr[0] === '0' && arr[1] === '0') {
@@ -64,7 +65,13 @@ const createNumber = function (num) {
     }
     if (arr[0] === '.') {
         arr.unshift(0);
-    }   
+    }
+    /* HERE:
+     if(currentOperator.plusMinus) {
+        arr.unshift('-');
+        currentOperator.plusMinus = false;
+    } */
+    
     num = arr.join('');
     entry.innerText = num;
     return num;
@@ -175,3 +182,8 @@ buttons.forEach((button) => {
         document.body.style.background = 'linear-gradient(to right, #2E8B57, #90EE90)';
     });
 });
+
+/* PLUS-MINUS EVENT: ???*/
+// plus_minus.addEventListener('click', (e) => {
+//     currentOperator.plusMinus = true;
+// });
