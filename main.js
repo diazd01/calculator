@@ -21,12 +21,14 @@ const currentOperator = {
     op: '',
     active: false
 };
-
 //Functions:
 const operate = function (a, b) {
     
     if (currentOperator.op === 'divide') {
         answer = a / b;
+        if(b === '0') {
+            return entry.innerText = 'ERROR';
+        }
     } else if (currentOperator.op === 'multiply') {
         answer = a * b;
     } else if (currentOperator.op === 'subtract') {
@@ -34,14 +36,10 @@ const operate = function (a, b) {
     } else if (currentOperator.op === 'add') {
         answer = parseFloat(a) + parseFloat(b);
     }
-    if (answer === Infinity) {
-        return entry.innerText = 'ERROR';
-    }
     if (answer.toString().length > 10) {
         answer = answer.toPrecision(7);
     }
     return entry.innerText = answer;
-
 }
 
 
