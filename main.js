@@ -19,8 +19,7 @@ let equalsClicked = false;
 
 const currentOperator = {
     op: '',
-    active: false,
-    plusMinus: false
+    active: false
 };
 
 //Functions:
@@ -35,7 +34,7 @@ const operate = function (a, b) {
     } else if (currentOperator.op === 'add') {
         answer = parseFloat(a) + parseFloat(b);
     }
-    if (answer === Infinity || answer === NaN) {
+    if (answer === Infinity) {
         return entry.innerText = 'ERROR';
     }
     if (answer.toString().length > 10) {
