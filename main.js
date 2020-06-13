@@ -93,7 +93,6 @@ const clearCalculator = function () {
     currentOperator.active = false;
     document.body.style.background = 'white';
 }
-
 //Events:
 numbers.forEach((number) => {
     number.addEventListener('click', (e) => {
@@ -101,6 +100,8 @@ numbers.forEach((number) => {
         if(firstNum !== undefined && secondNum !== undefined) {
             firstNum = undefined;
         }
+        /* Style: */
+        document.body.style.background = 'linear-gradient(to right, #2E8B57, #90EE90)';
     });
 });
 
@@ -142,7 +143,6 @@ operators.forEach((op) => {
     });
 
 });
-
 /* EQUALS SIGN EVENT */
 equals.addEventListener('click', (e) => {
     arr = [];
@@ -162,17 +162,7 @@ equals.addEventListener('click', (e) => {
     console.log(`${firstNum} ${secondNum}`);
     console.log(answer);
 });
-
 /* CLEAR BUTTON EVENT: */
-
 clearButton.addEventListener('click', (e) => {
     clearCalculator();
 });
-
-/* STYLE: */
-numbers.forEach((number) => {
-    number.addEventListener('click', (e) => {
-        document.body.style.background = 'linear-gradient(to right, #2E8B57, #90EE90)';
-    });
-});
-
