@@ -165,8 +165,8 @@ equals.addEventListener('click', (e) => {
 clearButton.addEventListener('click', (e) => {
     clearCalculator();
 });
-/* Keyboard support: (still need to work on operator keys 
-- number support only) */
+/* Keyboard support: 
+(Still need to work on operator keys - number support only) */
 document.addEventListener('keydown', (e) => {
     if (!isNaN(e.key) || e.key === '.') {
         createdNum = createNumber(e.key);
