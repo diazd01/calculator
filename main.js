@@ -1,4 +1,4 @@
-//DOMS: 
+//Variables' Selectors: 
 let entry = document.querySelector('.entry');
 let operators = document.querySelectorAll('.operators');
 const numbers = document.querySelectorAll('.numbers');
@@ -27,6 +27,7 @@ const operate = function (a, b) {
     if (currentOperator.op === 'divide') {
         answer = a / b;
         if(b === '0') {
+            document.body.style.background = '#CD5C5C'; 
             return entry.innerText = 'ERROR';
         }
     } else if (currentOperator.op === 'multiply') {
@@ -163,4 +164,11 @@ equals.addEventListener('click', (e) => {
 /* CLEAR BUTTON EVENT: */
 clearButton.addEventListener('click', (e) => {
     clearCalculator();
+});
+/* Keyboard support: (still need to work on operator keys 
+- number support only) */
+document.addEventListener('keydown', (e) => {
+    if (!isNaN(e.key)) {
+        createdNum = createNumber(e.key);
+    }
 });
